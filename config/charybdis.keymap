@@ -22,17 +22,26 @@
     };
 
     macros {
-        aAcc: aAcc {
-            compatible = "zmk,behavior-macro-two-param";
-            #binding-cells = <2>;
-            bindings =
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp LALT>,
-                <&macro_press>,
-                <&macro_param_2to2 &kp KP_NUMBER_0 MACRO_PLACEHOLDER &kp KP_NUMBER_2 &kp KP_NUMBER_2 &kp KP_NUMBER_4>,
-                <&macro_release>,
-                <&kp LALT>;
-
+        accent: accent_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             label = "ITALIAN_ACCENT_MACRO";
+            bindings = <
+                &macro_param_1to1 &kp LALT,
+                &macro_press,
+                &macro_param_2to2 &kp P0,
+                &macro_param_2to2 &kp P1,
+                &macro_param_2to2 &kp P2,
+                &macro_param_2to2 &kp P3,
+                &macro_param_2to2 &kp P4,
+                &macro_param_2to2 &kp P5,
+                &macro_param_2to2 &kp P6,
+                &macro_param_2to2 &kp P7,
+                &macro_param_2to2 &kp P8,
+                &macro_param_2to2 &kp P9,
+                &macro_release,
+                &kp LALT
+            >;
         };
     };
 
@@ -56,7 +65,7 @@
             bindings = <
 &kp KP_NUMLOCK  &none  &kp KP_DIVIDE    &kp KP_MULTIPLY  &kp KP_SUBTRACT  &kp KP_PLUS    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE
 &trans          &none  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none          &kp RBKT   &kp F1         &kp F2        &kp F3                &kp F4                 &kp DEL
-&trans          &none  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none          &kp BSLH   &kp F5         &kp F6        &aAcc F7 P0 P2 P2 P4  &kp F8                 &kp PAGE_UP
+&trans          &none  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none          &kp BSLH   &kp F5         &accent P0 P3 P3 P3 &accent P0 P2 P2 P4  &kp F8                 &kp PAGE_UP
 &trans          &none  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none          &trans     &kp F9         &kp F10       &kp F11               &kp F12                &kp PAGE_DOWN
                                         &kp DOT          &kp COMMA        &trans         &kp ENTER  &kp BACKSPACE
                                                          &trans           &trans         &trans
