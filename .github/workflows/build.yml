@@ -5,36 +5,37 @@ jobs:
     name: Prepare ZMK west modules
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-        - name: Install Python and pip
-          uses: actions/setup-python@v4
-          with:
-            python-version: "3.x"
+      - name: Install Python and pip
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
 
-        - name: Install west
-          run: |
-            python -m pip install --user west
-            echo "::add-path::${HOME}/.local/bin"
+      - name: Install west
+        run: |
+          python -m pip install --user west
+            echo "${HOME}/.local/bin" >> $GITHUB_PATH
             export PATH="${HOME}/.local/bin:$PATH"
             west --version
 
-        - name: Initialize west (local manifest)
-          run: |
-            west init -l .
+      - name: Initialize west (local manifest)
+        run: |
+          west init -l .
 
-        - name: Update west repositories (fetch dt-bindings and modules)
-          run: |
-            export PATH="${HOME}/.local/bin:$PATH"
-            west update
+      - name: Update west repositories (fetch dt-bindings and modules)
+        run: |
+          export PATH="${HOME}/.local/bin:$PATH"
+          west update
 
-        - name: Upload .west directory (modules) as artifact
-          uses: actions/upload-artifact@v4
-          with:
-            name: west-modules
-            path: .west
+      - name: Upload .west directory (modules) as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: west-modules
+          path: .west
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    needs: prepare-modules
