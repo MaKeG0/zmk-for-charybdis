@@ -27,19 +27,24 @@
             #binding-cells = <0>;
             label = "ITALIAN_ACCENT_MACRO";
             bindings = <
+                /* first param: the modifier to hold (LALT) */
                 &macro_param_1to1 &kp LALT,
                 &macro_press,
-                &macro_param_2to2 &kp P0,
-                &macro_param_2to2 &kp P1,
-                &macro_param_2to2 &kp P2,
-                &macro_param_2to2 &kp P3,
-                &macro_param_2to2 &kp P4,
-                &macro_param_2to2 &kp P5,
-                &macro_param_2to2 &kp P6,
-                &macro_param_2to2 &kp P7,
-                &macro_param_2to2 &kp P8,
-                &macro_param_2to2 &kp P9,
+
+                /* subsequent params: each maps to its parameter slot */
+                &macro_param_2to2 &kp KP_NUMBER_0, /* P0 slot default */
+                &macro_param_3to3 &kp KP_NUMBER_1, /* P1 slot default */
+                &macro_param_4to4 &kp KP_NUMBER_2, /* P2 slot default */
+                &macro_param_5to5 &kp KP_NUMBER_3, /* P3 slot default */
+                &macro_param_6to6 &kp KP_NUMBER_4, /* P4 slot default */
+                &macro_param_7to7 &kp KP_NUMBER_5, /* P5 slot default */
+                &macro_param_8to8 &kp KP_NUMBER_6, /* P6 slot default */
+                &macro_param_9to9 &kp KP_NUMBER_7, /* P7 slot default */
+                &macro_param_10to10 &kp KP_NUMBER_8,/* P8 slot default */
+                &macro_param_11to11 &kp KP_NUMBER_9,/* P9 slot default */
+
                 &macro_release,
+                /* final &kp LALT mirrors examples in docs and helps ensure proper release */
                 &kp LALT
             >;
         };
