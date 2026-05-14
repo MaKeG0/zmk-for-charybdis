@@ -1,5 +1,4 @@
 
-#include <physical_layouts.dtsi>
 
 / {
     charybdis_layout: charybdis_layout {
