@@ -13,11 +13,6 @@
 / {
     combos { compatible = "zmk,combos"; };
 
-/ {
-    zmk_studio_rpc: zmk_studio_rpc {
-        compatible = "zmk,studio-rpc";
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
