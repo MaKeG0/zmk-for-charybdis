@@ -6,11 +6,6 @@
         zmk,matrix_transform = &default_transform;
     };
 
-/ {
-    zmk_studio_rpc: zmk_studio_rpc {
-        compatible = "zmk,studio-rpc";
-    };
-};
 
     default_transform: keymap_transform_0 {
 		compatible = "zmk,matrix-transform";
