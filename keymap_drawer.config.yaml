@@ -1,8 +1,141 @@
 draw_config:
-  # 分体 4x6 键盘，拇指区 5 个键
   layout:
     ortho_layout:
       split: true
       rows: 4
       columns: 6
       thumbs: 5
+append_colon_to_layer_header: false
+  draw_key_sides: true
+
+  svg_extra_style: |
+    svg.keymap {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+    }
+    text.label {
+      stroke: #dfdfde;
+      stroke-width: 12;
+      stroke-linejoin: round;
+    }
+    rect.combo, rect.combo-separate {
+      opacity: 0.95;
+      stroke: #c9cccf;
+      stroke-width: 0.5;
+      fill: #d7eaed;
+    }
+    path.combo {
+      stroke-dasharray: 4, 4;
+      stroke-opacity: 0.3;
+    }
+    rect.held, rect.combo.held {
+      fill: #ebdada;
+    }
+
+  parse_config:
+    preprocess: true
+    skip_binding_parsing: false
+
+    raw_binding_map:
+      "&none":
+        tap: $$mdi:minus-circle-outline$$
+        type: none
+      "&bt BT_SEL 0":
+        shifted: $$mdi:bluetooth-connect$$
+        tap: ""
+        hold: 1
+      "&bt BT_SEL 1":
+        shifted: $$mdi:bluetooth-connect$$
+        tap: ""
+        hold: 2
+      "&bt BT_SEL 2":
+        shifted: $$mdi:bluetooth-connect$$
+        tap: ""
+        hold: 3
+      "&bt BT_SEL 3":
+        shifted: $$mdi:bluetooth-connect$$
+        tap: ""
+        hold: 4
+      "&bt BT_SEL 4":
+        shifted: $$mdi:bluetooth-connect$$
+        tap: ""
+        hold: 5
+      "&bt BT_SEL 5":
+        shifted: $$mdi:bluetooth-connect$$
+        tap: ""
+        hold: 6
+      "&mkp LCLK":
+        tap: $$mdi:mouse-left-click$$
+        hold: "left"
+      "&mkp MCLK":
+        tap: $$mdi:mouse$$
+        hold: "middle"
+      "&mkp RCLK":
+        tap: $$mdi:mouse-right-click$$
+        hold: "right"
+      "&bootloader":
+        tap: $$mdi:gesture-tap-hold$$
+
+    modifier_fn_map:
+      left_ctrl: Ctl
+      right_ctrl: Ctl
+      left_shift: $$mdi:apple-keyboard-shift$$
+      right_shift: $$mdi:apple-keyboard-shift$$
+      left_alt: Alt
+      right_alt: AltGr
+      left_gui: Gui
+      right_gui: Gui
+      keycode_combiner: '{mods}+{key}'
+      mod_combiner: '{mod_1}+{mod_2}'
+
+    zmk_keycode_map:
+      EXCLAMATION: '!'
+      EXCL: '!'
+      AT_SIGN: '@'
+      AT: '@'
+      HASH: '#'
+      POUND: '#'
+      DOLLAR: $
+      DLLR: $
+      PERCENT: '%'
+      PRCNT: '%'
+      CARET: ^
+      AMPERSAND: '&'
+      AMPS: '&'
+      ASTERISK: '*'
+      ASTRK: '*'
+      STAR: '*'
+      LEFT_PARENTHESIS: (
+      LPAR: (
+      RIGHT_PARENTHESIS: )
+      RET: )
+      MINUS: '-'
+      EQUAL: '='
+      PLUS: '+'
+      UNDERSCORE: _
+      GRAVE: '`'
+      TILDE: '~'
+      PIPE: '|'
+      SLASH: /
+      QUESTION: '?'
+      BACKSLASH: \
+      ESCAPE: Esc
+      CAPSLOCK: Caps
+      LEFT_SHIFT: LSHFT
+      RIGHT_SHIFT: RSHFT
+      LEFT_CTRL: LCTRL
+      RIGHT_CTRL: RCTRL
+      LEFT_ALT: LALT
+      RIGHT_ALT: RALT
+      LEFT_GUI: LGUI
+      RIGHT_GUI: RGUI
+      TAB: Tab
+      BACKSPACE: Bksp
+      SPACE: Space
+      ENTER: Enter
+      DELETE: Del
+      PAGE_UP: PgUp
+      PAGE_DOWN: PgDn
+    # 标记所有可能的层切换方式
+    mark_alternate_layer_activators: true
