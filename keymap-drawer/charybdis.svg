@@ -147,36 +147,6 @@ path.combo {
 rect.held, rect.combo.held {
   fill: #ebdada;
 }
-.trans.tap, .ghost.tap {
-  opacity: 0.5;
-}
-.shifted {
-  translate: -9px 3px;
-  opacity: 0.3;
-}
-.toggle.shifted {
-  translate: -12px 17px;
-  opacity: 1.0;
-}
-.toggle.hold {
-  translate: 12px -25px;
-}
-.text_with_symbol.tap {
-  translate: -1px 1px;
-}
-.text_with_symbol.shifted {
-  translate: 8px 13px;
-  font-size: 8px;
-  opacity: 1.0;
-}
-.combo.text_with_symbol.tap {
-  translate: -1px 1px;
-}
-.combo.text_with_symbol.shifted {
-  translate: 7px 5px;
-  font-size: 8px;
-  opacity: 1.0;
-}
 </style>
 <g transform="translate(30, 0)" class="layer-Base">
 <text x="0" y="28" class="label" id="Base">Base</text>
