@@ -3,7 +3,7 @@
 ![ZMK Build](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/build.yml?label=ZMK%20Build&style=for-the-badge&color=2ac3de)
 ![Keymap Draw](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/draw-keymaps.yml?label=Keymap%20Draw&style=for-the-badge&color=bb9af7)
 
-本项目专为 **“MiaoMiao”定制版无线 Charybdis** 分体轨迹球键盘打造，提供开箱即用的 ZMK 固件支持。在优化无线连接与硬件功耗的同时，兼容官方焊接版。
+本库专为 **“MiaoMiao”定制版无线 Charybdis** 分体轨迹球键盘提供到手即用的 ZMK 固件方案。支持ZNK Studio 实时改键,在优化无线连接与硬件功耗的同时，兼容官方焊接版本。
 
 ---
 
