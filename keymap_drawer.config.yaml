@@ -38,7 +38,7 @@ draw_config:
 
   # 解析配置（键码美化核心）
   parse_config:
-    preprocess: true   # 先设为 false 确保兼容，如需启用可改为 true
+    preprocess: false   # 先设为 false 确保兼容，如需启用可改为 true
     # skip_binding_parsing: false  # 默认 false，可不写
 
     # 将特定 ZMK 行为映射为图标或简短文字
