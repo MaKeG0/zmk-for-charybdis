@@ -8,7 +8,7 @@ draw_config:
       thumbs: 5
 
   # 基础显示设置
-  append_colon_to_layer_header: false
+  append_colon_to_layer_header: true
   draw_key_sides: true
 
   # 自定义样式（放大字体 + 美观配色）
