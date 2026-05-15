@@ -218,7 +218,7 @@ layers:
   - '&mkp LCLK'
   - '4'
   - '&mkp RCLK'
-  - {t: ▽, type: trans}
+  - ''
   - '&bootloader'
   - ''
   - '&mkp LCLK'
@@ -273,7 +273,7 @@ layers:
   - ''
   - ''
   - '&mkp LCLK'
-  - {t: ▽, type: trans}
+  - ''
   - '&mkp RCLK'
   - ''
   - '&bootloader'
