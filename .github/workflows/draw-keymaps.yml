@@ -14,21 +14,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install keymap-drawer and compatible tree-sitter
-        run: |
-          pip install keymap-drawer
-          pip install tree-sitter==0.20.4
-
       - name: Draw keymaps
         run: |
           mkdir -p keymap-drawer
-          keymap parse -z config/charybdis.keymap -c 10 > keymap-drawer/charybdis.yaml
-          keymap draw keymap-drawer/charybdis.yaml -c keymap_drawer.config.yaml > keymap-drawer/charybdis.svg
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace \
+            ghcr.io/caksoylar/keymap-drawer \
+            keymap parse -z config/charybdis.keymap -c 10 > keymap-drawer/charybdis.yaml
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace \
+            ghcr.io/caksoylar/keymap-drawer \
+            keymap draw keymap-drawer/charybdis.yaml -c keymap_drawer.config.yaml > keymap-drawer/charybdis.svg
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
