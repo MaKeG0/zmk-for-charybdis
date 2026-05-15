@@ -9,7 +9,6 @@ draw_config:
   append_colon_to_layer_header: false
   draw_key_sides: true
 
-  # 美观样式（参考库同款）
   svg_extra_style: |
     svg.keymap {
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -34,58 +33,20 @@ draw_config:
     rect.held, rect.combo.held {
       fill: #ebdada;
     }
-    .trans.tap, .ghost.tap {
-      opacity: 0.5;
-    }
-    .shifted {
-      translate: -9px 3px;
-      opacity: 0.3;
-    }
-    .toggle.shifted {
-      translate: -12px 17px;
-      opacity: 1.0;
-    }
-    .toggle.hold {
-      translate: 12px -25px;
-    }
-    .text_with_symbol.tap {
-      translate: -1px 1px;
-    }
-    .text_with_symbol.shifted {
-      translate: 8px 13px;
-      font-size: 8px;
-      opacity: 1.0;
-    }
-    .combo.text_with_symbol.tap {
-      translate: -1px 1px;
-    }
-    .combo.text_with_symbol.shifted {
-      translate: 7px 5px;
-      font-size: 8px;
-      opacity: 1.0;
-    }
 
   parse_config:
-    preprocess: false   # 完全关闭预处理，全靠 raw_binding_map
-    skip_binding_parsing: false
-
-    # 图例设置
-    sticky_label: $$mdi:gesture-tap-hold$$
-    toggle_label: toggle
-    tap_toggle_label: tap-toggle
-    trans_legend:
-      tap: $$mdi:transfer$$
-      type: trans
-
-    # 核心：为每个具体的绑定指定显示内容
+    preprocess: false
+    # 映射你实际上用到的所有绑定
     raw_binding_map:
-      # ====== 空键 ======
-      "&none":
-        tap: $$mdi:minus-circle-outline$$
-        type: none
-      "&trans": { tap: $$mdi:transfer$$, type: trans }
-
-      # ====== 层切换（红色） ======
+      "&none": { tap: " ", type: none }
+      "&bootloader": { tap: "BOOT" }
+      "&mkp LCLK": { tap: "LCLK", hold: "left" }
+      "&mkp MCLK": { tap: "MCLK", hold: "mid" }
+      "&mkp RCLK": { tap: "RCLK", hold: "right" }
+      "&bt BT_SEL 0": { tap: "BT0", hold: "0" }
+      "&bt BT_SEL 1": { tap: "BT1", hold: "1" }
+      "&bt BT_SEL 2": { tap: "BT2", hold: "2" }
+      "&bt BT_CLR": { tap: "CLR" }
       "&mo 1": { tap: "L1", hold: "L1", type: held }
       "&mo 2": { tap: "L2", hold: "L2", type: held }
       "&mo 3": { tap: "L3", hold: "L3", type: held }
@@ -94,157 +55,15 @@ draw_config:
       "&lt 2 ENTER": { tap: "Enter", hold: "L2", type: held }
       "&lt 3 Z": { tap: "Z", hold: "L3", type: held }
       "&lt 3 SLASH": { tap: "/", hold: "L3", type: held }
-
-      # ====== 蓝牙 ======
-      "&bt BT_SEL 0": { shifted: $$mdi:bluetooth-connect$$, tap: "", hold: "1" }
-      "&bt BT_SEL 1": { shifted: $$mdi:bluetooth-connect$$, tap: "", hold: "2" }
-      "&bt BT_SEL 2": { shifted: $$mdi:bluetooth-connect$$, tap: "", hold: "3" }
-      "&bt BT_CLR": { tap: "CLR", hold: "CLR" }
-
-      # ====== 鼠标键 ======
-      "&mkp LCLK": { tap: $$mdi:mouse-left-click$$, hold: "left" }
-      "&mkp MCLK": { tap: $$mdi:mouse$$, hold: "middle" }
-      "&mkp RCLK": { tap: $$mdi:mouse-right-click$$, hold: "right" }
-      "&bootloader": { tap: $$mdi:gesture-tap-hold$$ }
-
-      # ====== Base 层所有单键 (图标/短名称) ======
-      "&kp GRAVE": { tap: "`" }
-      "&kp N1": { tap: "1" }
-      "&kp N2": { tap: "2" }
-      "&kp N3": { tap: "3" }
-      "&kp N4": { tap: "4" }
-      "&kp N5": { tap: "5" }
-      "&kp N6": { tap: "6" }
-      "&kp N7": { tap: "7" }
-      "&kp N8": { tap: "8" }
-      "&kp N9": { tap: "9" }
-      "&kp N0": { tap: "0" }
-      "&kp BACKSLASH": { tap: "\\" }
-      "&kp TAB": { tap: $$mdi:keyboard-tab$$ }
-      "&kp Q": { tap: "Q" }
-      "&kp W": { tap: "W" }
-      "&kp E": { tap: "E" }
-      "&kp R": { tap: "R" }
-      "&kp T": { tap: "T" }
-      "&kp Y": { tap: "Y" }
-      "&kp U": { tap: "U" }
-      "&kp I": { tap: "I" }
-      "&kp O": { tap: "O" }
-      "&kp P": { tap: "P" }
-      "&kp BACKSPACE": { tap: $$mdi:backspace$$ }
-      "&kp LEFT_SHIFT": { tap: $$mdi:apple-keyboard-shift$$ }
-      "&kp A": { tap: "A" }
-      "&kp S": { tap: "S" }
-      "&kp D": { tap: "D" }
-      "&kp F": { tap: "F" }
-      "&kp G": { tap: "G" }
-      "&kp H": { tap: "H" }
-      "&kp J": { tap: "J" }
-      "&kp K": { tap: "K" }
-      "&kp L": { tap: "L" }
-      "&kp SEMI": { tap: ";" }
-      "&kp APOS": { tap: "'" }
-      "&kp LCTRL": { tap: $$mdi:apple-keyboard-control$$ }
-      "&kp Z": { tap: "Z" }
-      "&kp X": { tap: "X" }
-      "&kp C": { tap: "C" }
-      "&kp V": { tap: "V" }
-      "&kp B": { tap: "B" }
-      "&kp N": { tap: "N" }
-      "&kp M": { tap: "M" }
-      "&kp COMMA": { tap: "," }
-      "&kp DOT": { tap: "." }
-      "&kp SLASH": { tap: "/" }
-      "&kp ESCAPE": { tap: $$mdi:keyboard-esc$$ }
-      "&kp LEFT_WIN": { tap: $$mdi:apple-keyboard-command$$ }
-      "&kp SPACE": { tap: $$mdi:keyboard-space$$ }
-      "&kp ENTER": { tap: $$mdi:keyboard-return$$ }
-      "&kp LEFT_ALT": { tap: $$mdi:apple-keyboard-option$$ }
-      "&kp CAPSLOCK": { tap: "Caps" }
+      "&kp BACKSPACE": { tap: "Bksp" }
+      "&kp ESCAPE": { tap: "Esc" }
+      "&kp LEFT_SHIFT": { tap: "LShft" }
+      "&kp LEFT_CTRL": { tap: "LCtl" }
+      "&kp LEFT_ALT": { tap: "LAlt" }
+      "&kp LEFT_WIN": { tap: "Win" }
+      "&kp RIGHT_ALT": { tap: "RAlt" }
+      "&kp SPACE": { tap: "Spc" }
+      "&kp ENTER": { tap: "Ent" }
+      "&kp TAB": { tap: "Tab" }
       "&kp DELETE": { tap: "Del" }
-      "&kp RIGHT_ALT": { tap: $$mdi:apple-keyboard-option$$ }
-
-      # ====== layer_1 层专用键 ======
-      "&kp TILDE": { tap: "~" }
-      "&kp EXCLAMATION": { tap: "!" }
-      "&kp AT_SIGN": { tap: "@" }   # 备用，你的keymap中可能没直接用到
-      "&kp HASH": { tap: "#" }
-      "&kp DOLLAR": { tap: "$" }
-      "&kp PERCENT": { tap: "%" }
-      "&kp CARET": { tap: "^" }
-      "&kp AMPERSAND": { tap: "&" }
-      "&kp ASTERISK": { tap: "*" }
-      "&kp LEFT_PARENTHESIS": { tap: "(" }
-      "&kp RIGHT_PARENTHESIS": { tap: ")" }
-      "&kp PIPE": { tap: "|" }
-      "&kp NUMBER_1": { tap: "1" }
-      "&kp NUMBER_2": { tap: "2" }
-      "&kp NUMBER_3": { tap: "3" }
-      "&kp NUMBER_4": { tap: "4" }
-      "&kp NUMBER_5": { tap: "5" }
-      "&kp NUMBER_6": { tap: "6" }
-      "&kp NUMBER_7": { tap: "7" }
-      "&kp NUMBER_8": { tap: "8" }
-      "&kp NUMBER_9": { tap: "9" }
-      "&kp NUMBER_0": { tap: "0" }
-      "&kp LBKT": { tap: "[" }
-      "&kp RBKT": { tap: "]" }
-      "&kp PAGE_UP": { tap: $$mdi:transfer-up$$ }
-      "&kp PAGE_DOWN": { tap: $$mdi:transfer-down$$ }
-      "&kp LSHFT": { tap: $$mdi:apple-keyboard-shift$$ }
-      # F1 - F12
-      "&kp F1": { tap: "F1" }
-      "&kp F2": { tap: "F2" }
-      "&kp F3": { tap: "F3" }
-      "&kp F4": { tap: "F4" }
-      "&kp F5": { tap: "F5" }
-      "&kp F6": { tap: "F6" }
-      "&kp F7": { tap: "F7" }
-      "&kp F8": { tap: "F8" }
-      "&kp F9": { tap: "F9" }
-      "&kp F10": { tap: "F10" }
-      "&kp F11": { tap: "F11" }
-      "&kp F12": { tap: "F12" }
-      # layer_1 中可能出现的其他键
-      "&kp MINUS": { tap: "-" }
-      "&kp EQUAL": { tap: "=" }
-      "&kp RIGHT_WIN": { tap: $$mdi:apple-keyboard-command$$ }
-      "&kp AT": { tap: "@" }
-      "&kp EXCL": { tap: "!" }
-
-      # ====== layer_2 组合键 &kp LS(...) 直接映射到 Shift 字符 ======
-      "&kp LS(GRAVE)": { tap: "~" }
-      "&kp LS(N1)": { tap: "!" }
-      "&kp LS(N2)": { tap: "@" }
-      "&kp LS(N3)": { tap: "#" }
-      "&kp LS(N4)": { tap: "$" }
-      "&kp LS(N5)": { tap: "%" }
-      "&kp LS(N6)": { tap: "^" }
-      "&kp LS(N7)": { tap: "&" }
-      "&kp LS(N8)": { tap: "*" }
-      "&kp LS(N9)": { tap: "(" }
-      "&kp LS(N0)": { tap: ")" }
-      "&kp LS(LBKT)": { tap: "{" }
-      "&kp LS(RBKT)": { tap: "}" }
-      "&kp LS(MINUS)": { tap: "_" }
-      "&kp LS(EQUAL)": { tap: "+" }
-      "&kp LS(BACKSLASH)": { tap: "|" }
-      # layer_2 的方向键
-      "&kp UP": { tap: $$mdi:arrow-up-bold$$ }
-      "&kp DOWN": { tap: $$mdi:arrow-down-bold$$ }
-      "&kp LEFT": { tap: $$mdi:arrow-left-bold$$ }
-      "&kp RIGHT": { tap: $$mdi:arrow-right-bold$$ }
-
-      # ====== 其他可能遗漏的别名 ======
-      "&kp BSPC": { tap: $$mdi:backspace$$ }
-      "&kp RET": { tap: $$mdi:keyboard-return$$ }
-      "&kp ESC": { tap: $$mdi:keyboard-esc$$ }
-      "&kp DEL": { tap: "Del" }
-      "&kp PG_UP": { tap: $$mdi:transfer-up$$ }
-      "&kp PG_DN": { tap: $$mdi:transfer-down$$ }
-      "&kp LALT": { tap: $$mdi:apple-keyboard-option$$ }
-      "&kp RALT": { tap: $$mdi:apple-keyboard-option$$ }
-      "&kp LGUI": { tap: $$mdi:apple-keyboard-command$$ }
-      "&kp RGUI": { tap: $$mdi:apple-keyboard-command$$ }
-      "&kp RCTRL": { tap: $$mdi:apple-keyboard-control$$ }
-      "&kp RSHIFT": { tap: $$mdi:apple-keyboard-shift$$ }
+      "&kp CAPSLOCK": { tap: "Caps" }
