@@ -134,7 +134,17 @@ text.label {
   stroke-width: 12;
   stroke-linejoin: round;
 }
-rect.held {
+rect.combo, rect.combo-separate {
+  opacity: 0.95;
+  stroke: #c9cccf;
+  stroke-width: 0.5;
+  fill: #d7eaed;
+}
+path.combo {
+  stroke-dasharray: 4, 4;
+  stroke-opacity: 0.3;
+}
+rect.held, rect.combo.held {
   fill: #ebdada;
 }
 </style>
