@@ -9,7 +9,7 @@
 
 ## 🗺️ 键位布局
 
-![Charybdis Keymap](keymap-drawer/charybdis.svg)
+![Charybdis Keymap](img/charybdis.svg)
 
 *每次提交 `.keymap` 文件，本图均由 GitHub Actions 自动生成并更新。*
 
