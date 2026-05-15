@@ -125,9 +125,13 @@ path.combo {
 /* End Tabler Icons Cleanup */
 
 svg.keymap {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: Comic Sans MS, cursive, sans-serif;
+  font-size: 18px;
   font-weight: bold;
+  fill: red;
+}
+text.label {
+  stroke: none;
 }
 </style>
 <g transform="translate(30, 0)" class="layer-Base">
