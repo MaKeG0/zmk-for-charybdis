@@ -81,6 +81,8 @@ draw_config:
       mod_combiner: '{mod_1}+{mod_2}'
 
     zmk_keycode_map:
+      BACKSPACE: "Bksp"   # 原来是 $$mdi:backspace$$
+      ESCAPE: "Esc"
       EXCLAMATION: '!'
       AT_SIGN: '@'
       HASH: '#'
