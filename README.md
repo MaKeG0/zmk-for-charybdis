@@ -3,53 +3,55 @@
 ![ZMK Build](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/build.yml?label=ZMK%20Build&style=for-the-badge&color=2ac3de)
 ![Keymap Draw](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/draw-keymaps.yml?label=Keymap%20Draw&style=for-the-badge&color=bb9af7)
 
-本库专为 **“MiaoMiao”定制版无线 Charybdis** 分体轨迹球键盘提供到手即用的 ZMK 固件方案。支持ZNK Studio 实时改键,优化无线连接与硬件功耗，固件兼容官方焊接版本。
+This repository provides an out-of-the-box ZMK configuration tailored for the **"MiaoMiao" custom wireless Charybdis** split trackball keyboard. It natively supports real-time keymap editing via ZMK Studio, optimizes wireless connectivity and power consumption, and maintains full backward compatibility with the official soldered version.
 
 ---
 
-## 🗺️ 键位布局
+## 🗺️ Keymap Layout
 
 ![Charybdis Keymap](img/charybdis.svg)
 
-*每次提交 `.keymap` 文件，本图均由 GitHub Actions 自动生成并更新。*
+*This layout diagram is automatically generated and updated via GitHub Actions whenever changes are committed to the `.keymap` file.*
 
 ---
 
-## 🛠️ 图形化改键
+## 🛠️ Graphical Configuration
 
-### 1. ZMK Studio (实时动态配置)
-通过 ZMK 官方协议直接对键盘进行免刷机实时改键，更改即刻生效。
-- **如何使用**：使用受支持的 Chromium 内核浏览器（如 Chrome / Edge），打开并连接 [ZMK Studio](https://zmk.studio/)，亦可使用其桌面客户端。
-- **核心优势**：**即时通讯**。通过 Web Serial (USB) 或 Web Bluetooth 直接与硬件交互，无需等待 GitHub Actions 编译及手动烧录，最适合日常快速微调基础键位。
+### 1. ZMK Studio (Simple Real-time Remapping)
+Modify your keymap on the fly without re-flashing, leveraging the official ZMK Studio protocol. All changes take effect instantly.
+- **How to Use**: Open and connect to [ZMK Studio](https://zmk.studio/) using a compatible Chromium-based browser (e.g., Chrome or Edge), or use the standalone desktop client.
+- **Core Advantage**: **Instant Communication**. Interacts directly with the hardware via USB (WebHID) or Web Bluetooth. This eliminates the need to wait for GitHub Actions to compile or to manually flash firmware, making it perfect for quick, daily adjustments to basic key assignments.
 
-### 2. Keymap Editor (云端全域编译)
-社区最成熟的可视化网页编辑器，深度集成 GitHub 工作流，适合对键盘布局进行全方位的架构大修。
-- **如何使用**：Fork 本仓库后，在 GitHub Actions 页面进行首次固件编译。随后访问 [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/)，授权登录并选择你的 `zmk-for-charybdis` 仓库。
-- **核心优势**：**全能编辑**。在直观的图形界面中拖拽修改键位，完美支持 Combos（组合键）、Macros（宏）以及各类复杂行为（Behaviors）的深度编辑。保存后自动向 GitHub 提交代码并触发云端编译。
-
----
-
-## 🚀 固件烧录指南
-
-> **📌 烧录须知：**
-> - **需要烧录**：仅当通过 **Keymap Editor** 修改布局、直接编辑 **库内代码**、或**首次初始化**键盘时，才需要执行以下烧录流程。
-> - **无需烧录**：若仅使用 **ZMK Studio** 进行实时键位微调，更改已即时写入硬件，请直接忽略本指南。
-
-### 烧录标准化流程：
-
-1. **固件编译**：在网页端修改配置后，GitHub Actions 会自动触发编译。请前往当前仓库的 **Actions** 页面获取最新的构建产物。
-2. **下载固件**：编译完成后，在构建任务的 📦 Artifacts 列表中下载 `firmware.zip` 压缩包。
-3. **解压文件**：解压该压缩包，获得对应左手和右手的 `left.uf2` 与 `right.uf2` 固件文件。
-4. **触发模式**：使用 USB 数据线将键盘连接至电脑，连续按下两次复位按键（Reset），使主控进入 Bootloader 模式（此时电脑会识别出虚拟 U 盘）。
-5. **拖入升级**：将对应的 `.uf2` 文件分别拖入左右手主控对应的虚拟 U 盘中，设备会自动重启并完成固件烧录。
-
-> **⚠️ 注意：** 左右手主控固件相互独立，两端均需要分别连接电脑进行烧录。
+### 2. Keymap Editor (Online Full Compilation)
+The most mature visual web editor in the community, deeply integrated with your GitHub workflow. It is ideal for comprehensive overhauls of your keyboard layout architecture.
+- **How to Use**: Fork this repository and run the initial firmware compilation under the GitHub Actions tab. Then, log into [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/), authorize access, and select your `zmk-for-charybdis` repository.
+- **Core Advantage**: **All-inclusive Editing**. Drag and drop to modify keymaps in an intuitive graphical interface with full support for Combos, Macros, and advanced ZMK Behaviors. Saving your changes automatically commits the code to GitHub and triggers a cloud build.
 
 ---
 
-## 📝 鸣谢与支持
+## 🚀 Firmware Flashing Guide
 
-*   **文档说明**：本说明文档基于 AI 辅助生成，作者已针对核心技术细节与操作流程进行了人工二次审核与深度编辑。对于自动化文本中可能存在的个别措辞瑕疵或语法滞涩，在此深表歉意。
-*   **技术支持**：若您是使用 **“MIAOMIAO”** 制作的 Charybdis 分体键盘用户，在固件使用、图形化改键或固件烧录过程中遇到任何疑问，欢迎随时通过以下渠道联系作者：
-    *   **📩 Gmail**：`heetuic@gmail.com`
-    *   **🐟 闲鱼**：搜索用户 **“喵喵喵猫”**
+> **📌 Flashing Notice:**
+> - **Flashing Required**: You only need to perform the flashing process below when modifying layouts via **Keymap Editor**, directly editing the **repository source code**, or performing the **initial setup** on a new keyboard.
+> - **No Flashing Required**: If you are using **ZMK Studio** for real-time keymap adjustments, changes are saved directly to the hardware's onboard flash memory. You can bypass this guide completely.
+
+### Standard Flashing Workflow:
+
+1. **Firmware Compilation**: Saving changes in Keymap Editor or pushing code commits will automatically trigger a GitHub Actions build. Navigate to the **Actions** tab of your repository to check the latest build status.
+2. **Download Firmware**: Once the build finishes successfully, scroll down to the **Artifacts** section at the bottom of the build page and download `firmware.zip`.
+3. **Extract Files**: Unzip the archive to retrieve the `left.uf2` and `right.uf2` firmware files for the respective halves of the keyboard.
+4. **Trigger Bootloader**: Connect one half of the keyboard to your PC via a USB cable. Double-tap the hardware Reset button on the controller to enter bootloader mode (the device will mount to your computer as a virtual mass storage drive).
+5. **Flash the Drive**: Drag and drop the corresponding `.uf2` file into the virtual drive. The microcontroller will automatically flash the firmware, reboot, and unmount itself.
+
+> **⚠️ Note:** The microcontrollers for the left and right halves operate independently. You must connect and flash each half individually via USB.
+
+---
+
+## 📝 Acknowledge & Support
+
+*   **Documentation Note**: This documentation was drafted with AI assistance and thoroughly reviewed/refined by the author to guarantee technical accuracy. We apologize for any minor linguistic nuances or awkward phrasing resulting from automation.
+*   **Technical Support**: If you are using a Charybdis split keyboard manufactured by **"MIAOMIAO"** and encounter any issues regarding firmware usage, graphical configuration, or flashing, please feel free to reach out to the author through these channels:
+    *   **📩 Gmail**: `heetuic@gmail.com`
+    *   **🐟 Xianyu (闲鱼)**: Search for user **"喵喵喵猫"**
+
+---
