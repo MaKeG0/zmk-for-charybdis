@@ -1,0 +1,8 @@
+draw_config:
+  # 分体 4x6 键盘，拇指区 5 个键
+  layout:
+    ortho_layout:
+      split: true
+      rows: 4
+      columns: 6
+      thumbs: 5
