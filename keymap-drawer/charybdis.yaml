@@ -13,7 +13,7 @@ layers:
   - '9'
   - '0'
   - \
-  - TAB
+  - Tab
   - Q
   - W
   - E
@@ -24,8 +24,8 @@ layers:
   - I
   - O
   - P
-  - BACKSPACE
-  - LEFT SHIFT
+  - BSPC
+  - Shift
   - A
   - S
   - D
@@ -37,7 +37,7 @@ layers:
   - L
   - ;
   - ''''
-  - LCTRL
+  - Ctrl
   - {t: Z, h: Mouse}
   - X
   - C
@@ -48,15 +48,15 @@ layers:
   - ','
   - .
   - {t: /, h: Mouse}
-  - ESCAPE
+  - ESC
   - LEFT WIN
-  - SPACE
-  - {t: ENTER, h: '1'}
-  - {t: ENTER, h: '2'}
-  - RIGHT ALT
-  - LEFT ALT
+  - Space
+  - {t: Enter, h: '1'}
+  - {t: Enter, h: '2'}
+  - Alt
+  - Alt
   - CAPSLOCK
-  - DELETE
+  - DEL
   '1':
   - '~'
   - '!'
@@ -81,7 +81,7 @@ layers:
   - F2
   - F3
   - F4
-  - BACKSPACE
+  - BSPC
   - LSHFT
   - '5'
   - '6'
@@ -93,8 +93,8 @@ layers:
   - F6
   - F7
   - F8
-  - PAGE UP
-  - LCTRL
+  - PgUp
+  - Ctrl
   - '9'
   - '0'
   - '-'
@@ -105,12 +105,12 @@ layers:
   - F10
   - F11
   - F12
-  - PAGE DOWN
+  - PgDn
   - LEFT WIN
-  - SPACE
+  - Space
   - {type: held}
-  - ENTER
-  - RIGHT ALT
+  - Enter
+  - Alt
   - ''
   - ''
   - ''
@@ -147,27 +147,27 @@ layers:
   - ''
   - Sft+\
   - ''
-  - UP
+  - ↑
   - ''
   - ''
   - ''
-  - LCTRL
+  - Ctrl
   - Sft+9
   - Sft+0
   - Sft+-
   - Sft+=
   - ''
   - ''
-  - LEFT
-  - DOWN
-  - RIGHT
+  - ←
+  - ↓
+  - →
   - ''
   - ''
   - LEFT WIN
-  - SPACE
-  - ENTER
+  - Space
+  - Enter
   - {type: held}
-  - RIGHT ALT
+  - Alt
   - ''
   - ''
   - ''
