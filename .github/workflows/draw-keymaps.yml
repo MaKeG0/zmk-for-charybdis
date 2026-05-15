@@ -8,7 +8,6 @@ on:
 
 jobs:
   draw:
-    runs-level: write
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -22,8 +21,7 @@ jobs:
       - name: Make output folder
         run: mkdir -p img
 
-      # 核心绘制步骤：注意修改为你实际的 .keymap 文件路径
-      # Charybdis 布局通常可以使用 qmk 对应的 layout 或者是标准的 matrix
+      # 记得将这里的 config/charybdis.keymap 改为你实际的文件名
       - name: Draw keymap SVG
         run: |
           keymap parse -c keymap_drawer.config.yaml -z config/charybdis.keymap > img/keymap.yaml
