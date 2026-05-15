@@ -51,13 +51,13 @@ layers:
   - ESC
   - LEFT WIN
   - Space
-  - {t: Enter, h: '1'}
-  - {t: Enter, h: '2'}
+  - {t: Enter, h: Lower}
+  - {t: Enter, h: Raise}
   - Alt
   - Alt
   - CAPSLOCK
   - DEL
-  '1':
+  Lower:
   - '~'
   - '!'
   - '#'
@@ -114,7 +114,7 @@ layers:
   - ''
   - ''
   - ''
-  '2':
+  Raise:
   - F12
   - F1
   - F2
@@ -211,12 +211,12 @@ layers:
   - '&bootloader'
   - {type: held}
   - '&mkp RCLK'
-  - '4'
+  - Scroll
   - '&mkp LCLK'
   - ''
   - '&studio_unlock'
   - '&mkp LCLK'
-  - '4'
+  - Scroll
   - '&mkp RCLK'
   - ''
   - '&bootloader'
@@ -228,7 +228,7 @@ layers:
   - ''
   - ''
   - ''
-  '4':
+  Scroll:
   - ''
   - ''
   - ''
