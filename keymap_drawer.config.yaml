@@ -7,7 +7,11 @@ draw_config:
       thumbs: 5
   svg_extra_style: |
     svg.keymap {
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
+      font-family: Comic Sans MS, cursive, sans-serif;
+      font-size: 18px;
       font-weight: bold;
+      fill: red;
+    }
+    text.label {
+      stroke: none;
     }
