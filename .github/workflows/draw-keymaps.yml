@@ -23,7 +23,7 @@ jobs:
 
       - name: Draw keymap SVG
         run: |
-          keymap parse -z config/charybdis.keymap > img/keymap.yaml
+          keymap parse -z config/charybdis.keymap -c 12 > img/keymap.yaml
           keymap draw img/keymap.yaml > img/keymap.svg
 
       - name: Commit and Push
