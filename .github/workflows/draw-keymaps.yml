@@ -9,23 +9,10 @@ on:
 
 jobs:
   draw:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Draw keymaps
-        run: |
-          mkdir -p keymap-drawer
-          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace \
-            ghcr.io/caksoylar/keymap-drawer \
-            keymap parse -z config/charybdis.keymap -c 10 > keymap-drawer/charybdis.yaml
-          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace \
-            ghcr.io/caksoylar/keymap-drawer \
-            keymap draw keymap-drawer/charybdis.yaml -c keymap_drawer.config.yaml > keymap-drawer/charybdis.svg
-
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          file_pattern: "keymap-drawer/*.svg keymap-drawer/*.yaml"
-          commit_message: "keymap-drawer render"
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    permissions:
+      contents: write
+    with:
+      keymap_patterns: "config/charybdis.keymap"
+      output_folder: "keymap-drawer"
+      config_path: "keymap_drawer.config.yaml"
