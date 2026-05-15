@@ -1,35 +1,19 @@
-name: Draw Keymap
+name: Draw ZMK keymaps
+
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # 允许手动触发
   push:
     paths:
-      - "config/*.keymap"
+      - "config/charybdis.keymap"
       - "keymap_drawer.config.yaml"
 
 jobs:
   draw:
-    runs-on: ubuntu-latest
+    # 核心：直接调用官方做好的自动化流程
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
     permissions:
-      contents: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install keymap-drawer
-        run: pip install keymap-drawer
-
-      - name: Make output folder
-        run: mkdir -p img
-
-      - name: Draw keymap SVG
-        run: |
-          keymap parse -z config/charybdis.keymap -c 12 > img/keymap.yaml
-          keymap draw img/keymap.yaml > img/keymap.svg
-
-      - name: Commit and Push
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add img/keymap.svg
-          git diff-index --quiet HEAD || git commit -m "bot: update keymap layout drawing"
-          git push
+      contents: write  # 必须开启写入权限，否则图片无法自动上传到仓库
+    with:
+      keymap_patterns: "config/charybdis.keymap"
+      output_folder: "img"  # 图片保存的文件夹
+      config_path: "keymap_drawer.config.yaml"
