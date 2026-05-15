@@ -15,7 +15,7 @@ draw_config:
   svg_extra_style: |
     svg.keymap {
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: bold;
     }
     text.label {
@@ -41,7 +41,7 @@ draw_config:
   parse_config:
     preprocess: false
 
-    # 只保留你最可能用到的特殊行为映射
+    # 特殊行为映射（仅保留常用）
     raw_binding_map:
       "&none":
         tap: $$mdi:minus-circle-outline$$
@@ -58,7 +58,7 @@ draw_config:
         tap: $$mdi:mouse-right-click$$
         hold: "right"
 
-    # 组合键显示规则（Ctrl/Shift/Alt/Gui 的简写）
+    # 组合键修饰符显示
     modifier_fn_map:
       left_ctrl: Ctl
       right_ctrl: Ctl
@@ -71,8 +71,9 @@ draw_config:
       keycode_combiner: '{mods}+{key}'
       mod_combiner: '{mod_1}+{mod_2}'
 
-    # 常用 ZMK 键码的美化显示
+    # 全面键码缩写映射（覆盖常用 ZMK 键码）
     zmk_keycode_map:
+      # 符号键（保持不变）
       EXCLAMATION: '!'
       EXCL: '!'
       AT_SIGN: '@'
@@ -103,23 +104,93 @@ draw_config:
       SLASH: /
       QUESTION: '?'
       BACKSLASH: \
+      SEMICOLON: ';'
+      COLON: ':'
+      COMMA: ','
+      PERIOD: .
+      LESS_THAN: '<'
+      GREATER_THAN: '>'
+
+      # 常用功能键（已缩写）
       ESCAPE: Esc
       CAPSLOCK: Caps
-      LEFT_SHIFT: LSHFT
-      RIGHT_SHIFT: RSHFT
-      LEFT_CTRL: LCTRL
-      RIGHT_CTRL: RCTRL
-      LEFT_ALT: LALT
-      RIGHT_ALT: RALT
-      LEFT_GUI: LGUI
-      RIGHT_GUI: RGUI
+      CAPITAL: Caps
       TAB: Tab
       BACKSPACE: Bksp
-      SPACE: Space
+      BSPC: Bksp
+      SPACE: Spc
       ENTER: Enter
       DELETE: Del
+      DEL: Del
       PAGE_UP: PgUp
+      PG_UP: PgUp
       PAGE_DOWN: PgDn
+      PG_DN: PgDn
+      HOME: Home
+      END: End
+      INSERT: Ins
+      INS: Ins
+      PRINTSCREEN: PrtSc
+      PSCR: PrtSc
+      SCROLLLOCK: ScrlLk
+      SLCK: ScrlLk
+      PAUSE_BREAK: Pause
+      PAUSE: Pause
+      MENU: Menu
+      APP: Menu
 
-    # 标记层切换按键（如 &mo 会显示倒三角）
+      # 修饰键（缩写更短）
+      LEFT_SHIFT: LShft
+      LSHIFT: LShft
+      RIGHT_SHIFT: RShft
+      RSHIFT: RShft
+      LEFT_CTRL: LCtl
+      LCTRL: LCtl
+      RIGHT_CTRL: RCtl
+      RCTRL: RCtl
+      LEFT_ALT: LAlt
+      LALT: LAlt
+      RIGHT_ALT: RAlt
+      RALT: RAlt
+      LEFT_GUI: LGui
+      LGUI: LGui
+      RIGHT_GUI: RGui
+      RGUI: RGui
+
+      # 方向键（箭头符号直观）
+      UP: '↑'
+      DOWN: '↓'
+      LEFT: '←'
+      RIGHT: '→'
+
+      # 媒体键（简短名称）
+      C_MUTE: Mute
+      MUTE: Mute
+      C_VOL_UP: Vol+
+      VOL_UP: Vol+
+      C_VOL_DN: Vol-
+      VOL_DN: Vol-
+      C_MEDIA_PLAY_PAUSE: Play
+      PLAY_PAUSE: Play
+      C_MEDIA_NEXT_TRACK: Next
+      NEXT: Next
+      C_MEDIA_PREV_TRACK: Prev
+      PREVIOUS: Prev
+      C_MEDIA_STOP: Stop
+      STOP: Stop
+      C_MEDIA_EJECT: Eject
+      EJECT: Eject
+      C_BRIGHTNESS_INC: Brt+
+      BRIGHTNESS_INC: Brt+
+      C_BRIGHTNESS_DEC: Brt-
+      BRIGHTNESS_DEC: Brt-
+
+      # 其他系统键
+      NUM_LOCK: NumLk
+      NUMLOCK: NumLk
+      POWER: Power
+      SLEEP: Sleep
+      WAKE: Wake
+
+    # 层切换标记
     mark_alternate_layer_activators: true
