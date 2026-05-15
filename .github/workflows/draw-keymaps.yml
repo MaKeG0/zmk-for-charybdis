@@ -1,6 +1,6 @@
 name: Draw Keymap
 on:
-  workflow_dispatch: # 允许手动触发
+  workflow_dispatch:
   push:
     paths:
       - "config/*.keymap"
@@ -21,10 +21,9 @@ jobs:
       - name: Make output folder
         run: mkdir -p img
 
-      # 记得将这里的 config/charybdis.keymap 改为你实际的文件名
       - name: Draw keymap SVG
         run: |
-          keymap parse -c keymap_drawer.config.yaml -z config/charybdis.keymap > img/keymap.yaml
+          keymap parse -z config/charybdis.keymap > img/keymap.yaml
           keymap draw -c keymap_drawer.config.yaml img/keymap.yaml > img/keymap.svg
 
       - name: Commit and Push
