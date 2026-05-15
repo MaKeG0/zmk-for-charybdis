@@ -27,8 +27,8 @@ jobs:
       - name: Draw keymaps
         run: |
           mkdir -p keymap-drawer
-          keymap parse -z config/charybdis.keymap -c 10 > keymap-drawer/charybdis.yaml
-          keymap draw keymap-drawer/charybdis.yaml -c keymap_drawer.config.yaml > keymap-drawer/charybdis.svg
+          keymap -c keymap_drawer.config.yaml parse -z config/charybdis.keymap -c 10 > keymap-drawer/charybdis.yaml
+          keymap -c keymap_drawer.config.yaml draw keymap-drawer/charybdis.yaml > keymap-drawer/charybdis.svg
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
