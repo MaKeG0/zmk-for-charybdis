@@ -11,7 +11,7 @@
 
 *每次提交 `.keymap` 文件，本图均由 GitHub Actions 自动生成并更新。*
 
-![Charybdis Keymap](img/keymap.svg)
+![Charybdis Keymap](keymap-drawer/charybdis.svg)
 
 > **💡 视觉图例说明：**
 > *   **基础字符**：正常点按触发的键位。
