@@ -105,7 +105,7 @@
     };
 };
 
-&dactyl_layout{
+&charybdis_layout{
 
 	transform = <&default_transform>;
 
