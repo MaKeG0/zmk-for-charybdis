@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "config/*.keymap"
-      - "config/*.dtsi"
+      - "config/charybdis.keymap"
       - "keymap_drawer.config.yaml"
 
 jobs:
@@ -26,7 +25,7 @@ jobs:
       - name: Draw keymaps
         run: |
           mkdir -p keymap-drawer
-          keymap parse config/charybdis.keymap -c 10 -z > keymap-drawer/charybdis.yaml
+          keymap parse -z config/charybdis.keymap -c 10 > keymap-drawer/charybdis.yaml
           keymap draw keymap-drawer/charybdis.yaml -c keymap_drawer.config.yaml > keymap-drawer/charybdis.svg
 
       - name: Commit and push changes
