@@ -1,13 +1,13 @@
-# 🌌 ZMK-Config for Charybdis
+# ZMK Config for Charybdis
 
 ![ZMK Build](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/build.yml?label=ZMK%20Build&style=for-the-badge&color=2ac3de)
 ![Keymap Draw](https://img.shields.io/github/actions/workflow/status/HeeTuic/zmk-for-charybdis/draw-keymaps.yml?label=Keymap%20Draw&style=for-the-badge&color=bb9af7)
 
-本库专为 **“MiaoMiao”定制版无线 Charybdis** 分体轨迹球键盘提供到手即用的 ZMK 固件方案。支持ZNK Studio 实时改键,在优化无线连接与硬件功耗的同时，兼容官方焊接版本。
+本项目专为 **“MiaoMiao”定制版无线 Charybdis** 分体轨迹球键盘打造，提供开箱即用的 ZMK 固件支持。在全面支持 ZMK Studio 实时改键、深度优化无线连接与硬件功耗的同时，底层逻辑保持对 BastardKB 官方原版（焊接版本）的完整兼容。
 
 ---
 
-## 🗺️ 键位布局
+## ◆ 键位布局 (Keymap Layout)
 
 ![Charybdis Keymap](keymap-drawer/charybdis.svg)
 
@@ -15,7 +15,9 @@
 
 ---
 
-## 🛠️ 图形化改键
+## ◆ 图形化改键 (Graphical Configuration)
+
+本项目支持两种主流图形化改键方案，分别满足 **免刷机实时微调** 与 **全功能深度定制** 的不同需求：
 
 ### 1. ZMK Studio (实时动态配置)
 通过 ZMK 官方协议直接对键盘进行免刷机实时改键，更改即刻生效。
@@ -29,29 +31,29 @@
 
 ---
 
-## 🚀 固件烧录指南
+## ◆ 固件烧录指南 (Flashing Guide)
 
-> **📌 烧录须知：**
+> **[ 烧录须知 ]**
 > - **需要烧录**：仅当通过 **Keymap Editor** 修改布局、直接编辑 **库内代码**、或**首次初始化**键盘时，才需要执行以下烧录流程。
 > - **无需烧录**：若仅使用 **ZMK Studio** 进行实时键位微调，更改已即时写入硬件，请直接忽略本指南。
 
 ### 烧录标准化流程：
 
 1. **固件编译**：在网页端修改配置后，GitHub Actions 会自动触发编译。请前往当前仓库的 **Actions** 页面获取最新的构建产物。
-2. **下载固件**：编译完成后，在构建任务的 📦 Artifacts 列表中下载 `firmware.zip` 压缩包。
+2. **下载固件**：编译完成后，在构建任务的 Artifacts 列表中下载 `firmware.zip` 压缩包。
 3. **解压文件**：解压该压缩包，获得对应左手和右手的 `left.uf2` 与 `right.uf2` 固件文件。
 4. **触发模式**：使用 USB 数据线将键盘连接至电脑，连续按下两次复位按键（Reset），使主控进入 Bootloader 模式（此时电脑会识别出虚拟 U 盘）。
 5. **拖入升级**：将对应的 `.uf2` 文件分别拖入左右手主控对应的虚拟 U 盘中，设备会自动重启并完成固件烧录。
 
-> **⚠️ 注意：** 左右手主控固件相互独立，两端均需要分别连接电脑进行烧录。
+> **注意：** 左右手主控固件相互独立，两端均需要分别连接电脑进行烧录。
 
 ---
 
-## 📝 鸣谢与支持
+## ◆ 鸣谢与支持 (Acknowledge & Support)
 
-*   **文档说明**：本说明文档基于 AI 辅助生成，作者已针对核心技术细节与操作流程进行了人工二次审核与深度编辑。对于自动化文本中可能存在的个别措辞瑕疵或语法滞涩，在此深表歉意。
-*   **技术支持**：若您是使用 **“MIAOMIAO”** 制作的 Charybdis 分体键盘用户，在固件使用、图形化改键或固件烧录过程中遇到任何疑问，欢迎随时通过以下渠道联系作者：
-    *   **📩 Gmail**：`heetuic@gmail.com`
-    *   **🐟 闲鱼**：搜索用户 **“喵喵喵猫”**
+- **文档说明**：本说明文档由 AI 辅助生成，作者已针对核心技术细节与操作流程进行了严谨的人工二次审核与深度编辑。对于自动化文本中可能存在的个别措辞瑕疵或语意滞涩，在此深表歉意。
+- **技术支持**：若您是使用 **“MIAOMIAO”** 制作的 Charybdis 分体键盘用户，在固件使用、图形化改键或固件烧录过程中遇到任何疑问，欢迎随时通过以下渠道联系作者：
+  - **Email**：`heetuic@gmail.com`
+  - **闲鱼**：搜索用户 **“喵喵喵猫”**
 
 ---
