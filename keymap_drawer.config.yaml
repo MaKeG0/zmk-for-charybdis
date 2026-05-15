@@ -1,10 +1,125 @@
 draw_config:
+  # 布局（Charybdis 4x6 分体）
   layout:
     ortho_layout:
       split: true
       rows: 4
       columns: 6
       thumbs: 5
+
+  # 基础显示设置
+  append_colon_to_layer_header: false
+  draw_key_sides: true
+
+  # 自定义样式（放大字体 + 美观配色）
+  svg_extra_style: |
+    svg.keymap {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    text.label {
+      stroke: #dfdfde;
+      stroke-width: 12;
+      stroke-linejoin: round;
+    }
+    rect.combo, rect.combo-separate {
+      opacity: 0.95;
+      stroke: #c9cccf;
+      stroke-width: 0.5;
+      fill: #d7eaed;
+    }
+    path.combo {
+      stroke-dasharray: 4, 4;
+      stroke-opacity: 0.3;
+    }
+    rect.held, rect.combo.held {
+      fill: #ebdada;
+    }
+
+  # 按键解析与美化
   parse_config:
-    preprocess: true
+    preprocess: false
+
+    # 只保留你最可能用到的特殊行为映射
+    raw_binding_map:
+      "&none":
+        tap: $$mdi:minus-circle-outline$$
+        type: none
+      "&bootloader":
+        tap: $$mdi:gesture-tap-hold$$
+      "&mkp LCLK":
+        tap: $$mdi:mouse-left-click$$
+        hold: "left"
+      "&mkp MCLK":
+        tap: $$mdi:mouse$$
+        hold: "middle"
+      "&mkp RCLK":
+        tap: $$mdi:mouse-right-click$$
+        hold: "right"
+
+    # 组合键显示规则（Ctrl/Shift/Alt/Gui 的简写）
+    modifier_fn_map:
+      left_ctrl: Ctl
+      right_ctrl: Ctl
+      left_shift: $$mdi:apple-keyboard-shift$$
+      right_shift: $$mdi:apple-keyboard-shift$$
+      left_alt: Alt
+      right_alt: AltGr
+      left_gui: Gui
+      right_gui: Gui
+      keycode_combiner: '{mods}+{key}'
+      mod_combiner: '{mod_1}+{mod_2}'
+
+    # 常用 ZMK 键码的美化显示
+    zmk_keycode_map:
+      EXCLAMATION: '!'
+      EXCL: '!'
+      AT_SIGN: '@'
+      AT: '@'
+      HASH: '#'
+      POUND: '#'
+      DOLLAR: $
+      DLLR: $
+      PERCENT: '%'
+      PRCNT: '%'
+      CARET: ^
+      AMPERSAND: '&'
+      AMPS: '&'
+      ASTERISK: '*'
+      ASTRK: '*'
+      STAR: '*'
+      LEFT_PARENTHESIS: (
+      LPAR: (
+      RIGHT_PARENTHESIS: )
+      RET: )
+      MINUS: '-'
+      EQUAL: '='
+      PLUS: '+'
+      UNDERSCORE: _
+      GRAVE: '`'
+      TILDE: '~'
+      PIPE: '|'
+      SLASH: /
+      QUESTION: '?'
+      BACKSLASH: \
+      ESCAPE: Esc
+      CAPSLOCK: Caps
+      LEFT_SHIFT: LSHFT
+      RIGHT_SHIFT: RSHFT
+      LEFT_CTRL: LCTRL
+      RIGHT_CTRL: RCTRL
+      LEFT_ALT: LALT
+      RIGHT_ALT: RALT
+      LEFT_GUI: LGUI
+      RIGHT_GUI: RGUI
+      TAB: Tab
+      BACKSPACE: Bksp
+      SPACE: Space
+      ENTER: Enter
+      DELETE: Del
+      PAGE_UP: PgUp
+      PAGE_DOWN: PgDn
+
+    # 标记层切换按键（如 &mo 会显示倒三角）
     mark_alternate_layer_activators: true
