@@ -1,7 +1,7 @@
 name: Draw ZMK keymaps
 
 on:
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:  
   push:
     paths:
       - "config/charybdis.keymap"
@@ -9,11 +9,11 @@ on:
 
 jobs:
   draw:
-    # 核心：直接调用官方做好的自动化流程
+    
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
     permissions:
-      contents: write  # 必须开启写入权限，否则图片无法自动上传到仓库
+      contents: write  
     with:
       keymap_patterns: "config/charybdis.keymap"
-      output_folder: "img"  # 图片保存的文件夹
+      output_folder: "img"  
       config_path: "keymap_drawer.config.yaml"

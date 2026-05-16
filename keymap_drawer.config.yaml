@@ -1,16 +1,16 @@
 # keymap_drawer.config.yaml
 draw_config:
-  # 基础尺寸设置，让键位呼吸感更强
+  
   key_w: 60.0
   key_h: 56.0
   split_gap: 30.0
   combo_side_ratio: 0.4
 
-  # 字体与样式配置（支持漂亮的圆角和现代感字体）
+  
   font_size: 14
   font_family: "JetBrains Mono, Inter, system-ui, sans-serif"
   
-  # 颜色主题（高对比度，优雅色彩）
+  
   style_css: |
     svg { background: #1a1b26; color: #a9b1d6; }
     rect.key { fill: #24283b; stroke: #414868; stroke-width: 1.5; rx: 6; ry: 6; }
@@ -25,7 +25,7 @@ draw_config:
     text.layer-label { fill: #7ccdfd; font-weight: bold; }
 
 parse_config:
-  # 强化的 ZMK 键码映射，将原本冗长难看的代码变成简洁的符号
+  
   zmk_keycode_map:
     EXCLAMATION: '!'
     EXCL: '!'
@@ -97,7 +97,7 @@ parse_config:
     ESCAPE: 'ESC'
     ESC: 'ESC'
     
-    # 修饰键美化
+    
     LEFT_CONTROL: 'Ctrl'
     LCTRL: 'Ctrl'
     RIGHT_CONTROL: 'Ctrl'
@@ -115,7 +115,7 @@ parse_config:
     RIGHT_GUI: 'Cmd'
     RGUI: 'Cmd'
     
-    # 媒体与方向键
+    
     UP: '↑'
     DOWN: '↓'
     LEFT: '←'
