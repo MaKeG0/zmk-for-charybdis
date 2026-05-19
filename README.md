@@ -51,7 +51,7 @@ The most mature visual web editor in the community, deeply integrated with your 
 
 *   **Documentation Note**: This documentation was drafted with AI assistance and thoroughly reviewed/refined by the author to guarantee technical accuracy. We apologize for any minor linguistic nuances or awkward phrasing resulting from automation.
 *   **Technical Support**: If you are using a Charybdis split keyboard manufactured by **"MIAOMIAO"** and encounter any issues regarding firmware usage, graphical configuration, or flashing, please feel free to reach out to the author through these channels:
-<!--    *   **📩 Gmail**: `heetuic@gmail.com`
-    *   **🐟 Xianyu (闲鱼)**: Search for user **"喵喵喵猫"** --!>
+    *   **📩 Gmail**: `heetuic@gmail.com`
+    *   **🐟 Xianyu (闲鱼)**: Search for user **"喵喵喵猫"**
 
 ---
